@@ -1,7 +1,23 @@
 import { Link, NavLink } from "react-router-dom";
 import img from '../../public/assets/user.png';
+import { useContext } from "react";
+import { AuthContext } from "../Components/Context/AuthProvaider";
 const Navber = () => {
+
+    const { user, logout } = useContext(AuthContext)
+
+    const handleSingOut = () => {
+        logout()
+            .then(() => {
+                alert('Success')
+            })
+            .catch(err => {
+                console.error(err);
+            })
+    }
+
     const navLink = <>
+
         <button className="btn">    <NavLink
             to="/"
             className={({ isActive, isPending }) =>
@@ -58,7 +74,15 @@ const Navber = () => {
                     <div className="w-10 rounded-full">
                         <img src={img} />
                     </div></label>
-                <Link to="/login"><button className="btn">Login</button></Link>
+
+                {
+                    user ?
+                        <button onClick={handleSingOut} className="btn">Sing Out</button>
+                        :
+                        <Link to="/login"><button className="btn">Login</button></Link>
+                }
+
+
             </div>
         </div>
     );
