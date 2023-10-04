@@ -11,12 +11,13 @@ const LeftSideNav = () => {
     }, [])
     return (
         <div className="space-y-4">
-            <h1>Left Side Nav  </h1>
+            <h1 className="text-xl font-medium ml-3 mt-3">Left Side Nav  </h1>
+            <hr />
             {
                 category.map(categor =>
                     <Link
                         to={`/category/${categor.id}`}
-                        className="block ml-3 font-medium  text-lg"
+                        className="block ml-3 font-medium  text-base"
                         key={categor.id}
                     >{categor.name}
                     </Link>

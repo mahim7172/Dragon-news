@@ -26,6 +26,14 @@ const Navber = () => {
         >
             Career
         </NavLink></button>
+        <button className="btn"><NavLink
+            to="/login"
+            className={({ isActive, isPending }) =>
+                isPending ? "pending" : isActive ? "active" : ""
+            }
+        >
+            Login
+        </NavLink></button>
     </>
     return (
         <div className="navbar bg-base-100">
@@ -50,7 +58,7 @@ const Navber = () => {
                     <div className="w-10 rounded-full">
                         <img src={img} />
                     </div></label>
-                <Link><button className="btn">Login</button></Link>
+                <Link to="/login"><button className="btn">Login</button></Link>
             </div>
         </div>
     );
